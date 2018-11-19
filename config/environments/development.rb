@@ -60,4 +60,17 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
   config.action_mailer.default_url_options = { protocol: 'https', host: 'rails3のトップページアドレス' }
+  
+    config.action_mailer.default_url_options = { host: 'https://ab07151741714a6aaac26c5bd3dd7009.vfs.cloud9.ap-southeast-1.amazonaws.com' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => 'smtp.gmail.com',
+    :user_name => "takuma.techcamp@gmail.com", #ご自身のgmailアドレス
+    :password => "uhhtgkqzjvciaphn", #2段階認証したアカウントで発行したアプリパスワード
+    :authentication => 'login'
+  }
 end
