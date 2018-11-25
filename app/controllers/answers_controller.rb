@@ -12,6 +12,11 @@ class AnswersController < ApplicationController
     @answer = Answer.create(create_params)
   end
   
+  def edit
+    @answer = Answer.find(params[:id])
+    @question = @answer.question
+  end
+  
   def update
     answer = Answer.find(params[:id])
     @question = answer.question
@@ -20,7 +25,7 @@ class AnswersController < ApplicationController
 
   #中略
 
-  private
+private
   def create_params
     params.require(:answer).permit(:question_id, :text).merge(user_id: current_user.id)
   end
@@ -29,6 +34,10 @@ class AnswersController < ApplicationController
     if Answer.exists?(question_id: params[:question_id], user_id: current_user.id)
       redirect_to :root
     end
+  end
+  
+  def update_params
+    params.require(:answer).permit(:text)
   end
 
 end
