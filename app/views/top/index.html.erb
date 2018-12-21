@@ -2,7 +2,7 @@
   <header class="header_top panel panel-default col-log-12 no-profile">
     <h2>まずはあなたのプロフィールを登録しましょう</h2>
     <p>Profyは友達の質問に答えながらプロフィールを作るサービスです！</p>
-    <%= link_to "プロフィールを登録する", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
+    <%= link_to "プロフィールを登録", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
   </header>
   <% else %>
   <div class="posting_form top_content">
@@ -17,7 +17,7 @@
     <%= f.submit "質問する" %>
     <% end %>
   </div>
-  
+
    <%= render @feed_contents_resource %>
 
   <%= paginate(@feed_contents) %>
